@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LONG LIVE — Field Manual · Bukit Jalil, 19–20 Nov 2026</title>
+<meta name="description" content="A complete concert guide to My Chemical Romance's The Black Parade at National Stadium Bukit Jalil, Kuala Lumpur.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#0b0b0c;
+  --ash:#131315;
+  --slab:#1a1a1d;
+  --concrete:#6f6b60;
+  --bone:#e9e4d8;
+  --bone-dim:#a9a396;
+  --blood:#b01319;
+  --blood-lo:#7a0d11;
+  --brass:#c9a047;
+  --sig:#4a7c8c;
+  --edge:rgba(233,228,216,.13);
+  --edge-hi:rgba(233,228,216,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--void);
+  color:var(--bone);
+  font-family:'Newsreader',Georgia,serif;
+  font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* grain + vignette atmosphere */
+body::before{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.28;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 0%,transparent 30%,rgba(0,0,0,.55) 100%);
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* ─── TYPE ─── */
+.disp{font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:900;line-height:.88;letter-spacing:-.01em;text-transform:uppercase}
+.mono{font-family:'DM Mono',ui-monospace,monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+
+/* ─── HERO ─── */
+header{
+  position:relative;padding:64px 0 40px;
+  border-bottom:3px solid var(--blood);
+  background:
+    linear-gradient(180deg,rgba(176,19,25,.09) 0%,transparent 60%),
+    repeating-linear-gradient(90deg,transparent 0 38px,rgba(233,228,216,.028) 38px 39px);
+  overflow:hidden;
+}
+.ministry{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--edge-hi);padding:5px 13px;
+  color:var(--bone-dim);margin-bottom:26px;
+}
+.ministry .dot{width:6px;height:6px;background:var(--blood);border-radius:50%;animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+h1.title{
+  font-size:clamp(3.6rem,13.5vw,9.5rem);
+  background:linear-gradient(175deg,var(--bone) 20%,var(--concrete) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+h1.title em{
+  display:block;font-style:normal;color:var(--blood);
+  -webkit-text-fill-color:var(--blood);
+  font-size:.42em;letter-spacing:.04em;margin-top:.18em;
+}
+.subline{
+  margin-top:26px;max-width:600px;color:var(--bone-dim);
+  font-size:1.06rem;font-weight:300;
+}
+.subline b{color:var(--bone);font-weight:500}
+
+/* countdown */
+.clock{display:flex;gap:10px;margin-top:34px;flex-wrap:wrap}
+.clock .unit{
+  background:var(--slab);border:1px solid var(--edge);
+  border-top:2px solid var(--brass);
+  padding:12px 18px;min-width:84px;text-align:center;
+}
+.clock .n{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:2.5rem;line-height:1;display:block;color:var(--bone)}
+.clock .l{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;color:var(--concrete);text-transform:uppercase;margin-top:5px;display:block}
+
+/* stamp */
+.stamp{
+  position:absolute;top:52px;right:-18px;
+  border:3px solid var(--blood);color:var(--blood);
+  padding:9px 20px;transform:rotate(9deg);
+  font-family:'Big Shoulders Display',sans-serif;font-weight:800;
+  font-size:1.5rem;letter-spacing:.08em;opacity:.62;
+  text-transform:uppercase;line-height:1;
+}
+.stamp small{display:block;font-size:.42em;letter-spacing:.2em;margin-top:3px;font-family:'DM Mono',monospace}
+@media(max-width:760px){.stamp{position:static;display:inline-block;transform:rotate(-2deg);margin-top:24px}}
+
+/* ─── FACT STRIP ─── */
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  border-bottom:1px solid var(--edge);background:var(--ash);
+}
+.fact{padding:20px 22px;border-right:1px solid var(--edge)}
+.fact:last-child{border-right:none}
+.fact .k{color:var(--concrete);font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase}
+.fact .v{font-family:'Big Shoulders Display',sans-serif;font-weight:700;font-size:1.5rem;line-height:1.1;margin-top:6px;text-transform:uppercase}
+.fact .v.red{color:var(--blood)}
+
+/* ─── SECTIONS ─── */
+section{padding:78px 0;border-bottom:1px solid var(--edge)}
+.shead{display:flex;align-items:baseline;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+.snum{
+  font-family:'DM Mono',monospace;font-size:.68rem;color:var(--blood);
+  border:1px solid var(--blood);padding:3px 9px;letter-spacing:.14em;
+}
+h2{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:clamp(2.1rem,5.6vw,3.4rem);text-transform:uppercase;line-height:.95}
+.lede{color:var(--bone-dim);max-width:660px;margin-bottom:38px;font-weight:300;font-size:1.04rem}
+.lede b,p b{color:var(--bone);font-weight:500}
+.lede i,p i{color:var(--brass);font-style:italic}
+
+/* ─── NOTICE ─── */
+.notice{
+  border-left:3px solid var(--brass);background:rgba(201,160,71,.07);
+  padding:16px 20px;margin:26px 0;font-size:.96rem;color:var(--bone-dim);
+}
+.notice strong{color:var(--brass);display:block;font-family:'DM Mono',monospace;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:7px}
+.notice.red{border-color:var(--blood);background:rgba(176,19,25,.08)}
+.notice.red strong{color:var(--blood)}
+
+/* ─── SETLIST ─── */
+.tier{margin-bottom:44px}
+.tierhead{display:flex;align-items:center;gap:14px;padding-bottom:11px;border-bottom:2px solid var(--edge-hi);margin-bottom:4px;flex-wrap:wrap}
+.tierhead h3{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:1.6rem;text-transform:uppercase;letter-spacing:.01em}
+.pill{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.14em;padding:4px 10px;text-transform:uppercase;white-space:nowrap}
+.pill.lock{background:var(--blood);color:var(--bone)}
+.pill.high{background:var(--brass);color:var(--void)}
+.pill.mid{background:var(--sig);color:var(--void)}
+.pill.wild{border:1px solid var(--concrete);color:var(--concrete)}
+.tiernote{color:var(--concrete);font-size:.88rem;margin:9px 0 14px;font-style:italic}
+
+.song{
+  display:grid;grid-template-columns:26px 1fr auto;gap:14px;align-items:center;
+  padding:11px 12px;border-bottom:1px solid rgba(233,228,216,.07);
+  transition:background .18s,padding-left .18s;
+}
+.song:hover{background:rgba(233,228,216,.045);padding-left:18px}
+.song input{
+  appearance:none;width:15px;height:15px;border:1.5px solid var(--concrete);
+  cursor:pointer;position:relative;flex-shrink:0;transition:.15s;
+}
+.song input:checked{background:var(--blood);border-color:var(--blood)}
+.song input:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--bone)}
+.song input:checked ~ .sname{opacity:.42;text-decoration:line-through}
+.sname{font-weight:400;font-size:1.03rem;transition:opacity .2s}
+.sname span{display:block;font-family:'DM Mono',monospace;font-size:.62rem;color:var(--concrete);letter-spacing:.08em;text-transform:none;margin-top:2px}
+.slink{
+  font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.13em;
+  color:var(--concrete);text-decoration:none;border:1px solid var(--edge);
+  padding:4px 9px;transition:.18s;white-space:nowrap;text-transform:uppercase;
+}
+.slink:hover{color:var(--brass);border-color:var(--brass)}
+
+.progbar{margin:0 0 34px;background:var(--slab);border:1px solid var(--edge);padding:14px 18px}
+.progbar .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+.progbar .lbl{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.16em;color:var(--concrete);text-transform:uppercase}
+.progbar .cnt{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:1.6rem;color:var(--brass)}
+.track{height:5px;background:rgba(233,228,216,.1);overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,var(--blood),var(--brass));width:0;transition:width .45s cubic-bezier(.4,0,.2,1)}
+
+/* ─── TIMELINE ─── */
+.tl{position:relative;padding-left:34px;margin-top:14px}
+.tl::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--concrete),var(--blood) 62%,var(--brass))}
+.beat{position:relative;padding-bottom:38px}
+.beat::before{
+  content:'';position:absolute;left:-30px;top:7px;width:12px;height:12px;
+  background:var(--void);border:2px solid var(--concrete);border-radius:50%;
+}
+.beat.key::before{border-color:var(--blood);background:var(--blood);box-shadow:0 0 0 4px rgba(176,19,25,.2)}
+.beat.now::before{border-color:var(--brass);background:var(--brass);box-shadow:0 0 0 4px rgba(201,160,71,.22)}
+.beat .when{font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.16em;color:var(--blood);text-transform:uppercase}
+.beat.now .when{color:var(--brass)}
+.beat h4{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:1.42rem;text-transform:uppercase;margin:5px 0 8px;line-height:1.05}
+.beat p{color:var(--bone-dim);font-weight:300;font-size:1rem}
+
+/* ─── CARDS / GRID ─── */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;margin-top:28px}
+.card{background:var(--slab);border:1px solid var(--edge);border-top:2px solid var(--concrete);padding:22px}
+.card.red{border-top-color:var(--blood)}
+.card.gold{border-top-color:var(--brass)}
+.card.blue{border-top-color:var(--sig)}
+.card h4{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:1.32rem;text-transform:uppercase;margin-bottom:10px;line-height:1.05}
+.card p{color:var(--bone-dim);font-size:.97rem;font-weight:300}
+.card p + p{margin-top:10px}
+.card ul{list-style:none;margin-top:10px}
+.card li{color:var(--bone-dim);font-size:.95rem;font-weight:300;padding-left:16px;position:relative;margin-bottom:7px}
+.card li::before{content:'▸';position:absolute;left:0;color:var(--blood)}
+
+/* ─── TABLE ─── */
+.tbl{width:100%;border-collapse:collapse;margin-top:26px;font-size:.94rem}
+.tbl th{
+  font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--concrete);text-align:left;padding:11px 13px;border-bottom:2px solid var(--edge-hi);vertical-align:bottom;
+}
+.tbl td{padding:14px 13px;border-bottom:1px solid var(--edge);color:var(--bone-dim);font-weight:300;vertical-align:top}
+.tbl tr:hover td{background:rgba(233,228,216,.035)}
+.tbl .zone{color:var(--bone);font-weight:500;font-family:'Big Shoulders Display',sans-serif;font-size:1.15rem;text-transform:uppercase;letter-spacing:.01em}
+.tbl .price{font-family:'DM Mono',monospace;font-size:.76rem;color:var(--brass);white-space:nowrap}
+.verdict{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;padding:3px 8px;text-transform:uppercase;white-space:nowrap;display:inline-block}
+.v-best{background:var(--brass);color:var(--void)}
+.v-good{background:var(--sig);color:var(--void)}
+.v-mixed{border:1px solid var(--concrete);color:var(--concrete)}
+.v-risk{background:var(--blood-lo);color:var(--bone)}
+.tblscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ─── STAGE DIAGRAM ─── */
+.diagram{background:var(--ash);border:1px solid var(--edge);padding:26px 18px;margin-top:30px}
+.diagram svg{width:100%;height:auto;display:block;max-width:660px;margin:0 auto}
+.legend{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+.legend div{display:flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.11em;color:var(--concrete);text-transform:uppercase}
+.legend i{width:13px;height:13px;display:block}
+
+/* ─── RUNNING ORDER ─── */
+.ro{border-left:2px solid var(--edge-hi);padding-left:22px;margin-top:26px}
+.ro .step{position:relative;padding-bottom:26px}
+.ro .step::before{content:'';position:absolute;left:-27px;top:9px;width:9px;height:9px;background:var(--blood);transform:rotate(45deg)}
+.ro .t{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.16em;color:var(--brass);text-transform:uppercase}
+.ro h4{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:1.3rem;text-transform:uppercase;margin:4px 0 6px}
+.ro p{color:var(--bone-dim);font-size:.97rem;font-weight:300}
+
+/* ─── FOOTER ─── */
+footer{padding:56px 0 76px;color:var(--concrete);font-size:.88rem;font-weight:300}
+footer h4{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:1.15rem;color:var(--bone);text-transform:uppercase;margin-bottom:12px}
+footer a{color:var(--sig);text-decoration:none;border-bottom:1px solid rgba(74,124,140,.35)}
+footer a:hover{color:var(--brass);border-color:var(--brass)}
+.srcs{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px 26px;margin-top:14px;font-size:.82rem}
+
+/* ─── REVEAL ─── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+header .ministry,header h1,header .subline,header .clock,header .stamp{animation:up .85s cubic-bezier(.2,.7,.3,1) backwards}
+header h1{animation-delay:.08s}
+header .subline{animation-delay:.18s}
+header .clock{animation-delay:.28s}
+header .stamp{animation-delay:.42s}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="stamp">Classified<small>Ministry of Menial Tasks</small></div>
+    <div class="ministry mono"><span class="dot"></span> Field Manual · Draag Territory · Sector KL</div>
+    <h1 class="title disp">Long Live<em>The Black Parade</em></h1>
+    <p class="subline">Everything you need to walk into <b>National Stadium Bukit Jalil</b> already fluent — the songs, the Draag storyline up to this point, how the B-stage works, and what you'll actually be looking at.</p>
+    <div class="clock" id="clock">
+      <div class="unit"><span class="n" id="d">—</span><span class="l">Days</span></div>
+      <div class="unit"><span class="n" id="h">—</span><span class="l">Hours</span></div>
+      <div class="unit"><span class="n" id="m">—</span><span class="l">Minutes</span></div>
+      <div class="unit"><span class="n" id="s">—</span><span class="l">Seconds</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="facts">
+  <div class="fact"><div class="k">Night One</div><div class="v red">Thu 19 Nov</div></div>
+  <div class="fact"><div class="k">Night Two</div><div class="v red">Fri 20 Nov</div></div>
+  <div class="fact"><div class="k">Venue</div><div class="v">Bukit Jalil</div></div>
+  <div class="fact"><div class="k">Set Length</div><div class="v">~26 Songs</div></div>
+  <div class="fact"><div class="k">Position in Tour</div><div class="v">Final Leg</div></div>
+</div>
+
+<!-- ══════════ 01 SETLIST ══════════ -->
+<section id="songs">
+<div class="wrap">
+  <div class="shead rv"><span class="snum">01</span><h2>The Lyrics Homework</h2></div>
+  <p class="lede rv">The show splits cleanly in two. <b>Act I is completely fixed</b> — they play <i>The Black Parade</i> front to back, in album order, every single night. That's 14 tracks you can learn with total confidence. <b>Act II rotates hard</b>, so it's a probability game. Tick songs off as you get them down.</p>
+
+  <div class="notice red rv">
+    <strong>One thing I can't do</strong>
+    I can't reproduce the actual lyrics here — they're copyrighted. What this page gives you is the <b>priority order</b>: which songs are guaranteed, which are coin-flips, and which are lottery tickets. Every song links straight to Genius so you can pull the words up in one tap. The genuinely useful thing was never the lyrics themselves — it's knowing which fourteen are locked and which twelve are a gamble.
+  </div>
+
+  <div class="progbar rv">
+    <div class="row"><span class="lbl">Memorisation Progress</span><span class="cnt"><span id="done">0</span> / <span id="total">0</span></span></div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+  </div>
+
+  <!-- TIER 1 -->
+  <div class="tier rv">
+    <div class="tierhead"><h3>Act I — The Album</h3><span class="pill lock">100% Certain · In This Order</span></div>
+    <p class="tiernote">Played in full, in sequence, at every show on this tour. If you learn nothing else, learn these. Several have been structurally altered for the tour — noted below.</p>
+    <div id="t1"></div>
+  </div>
+
+  <!-- TIER 2 -->
+  <div class="tier rv">
+    <div class="tierhead"><h3>Act II — The Near-Locks</h3><span class="pill high">~90% Likely</span></div>
+    <p class="tiernote">These have anchored nearly every Act II on the tour. "Helena" has closed or near-closed the show almost universally — expect it, and expect the whole stadium on it.</p>
+    <div id="t2"></div>
+  </div>
+
+  <!-- TIER 3 -->
+  <div class="tier rv">
+    <div class="tierhead"><h3>Act II — Strong Odds</h3><span class="pill mid">~50–70%</span></div>
+    <p class="tiernote">Frequent rotation regulars. Worth knowing the choruses at minimum.</p>
+    <div id="t3"></div>
+  </div>
+
+  <!-- TIER 4 -->
+  <div class="tier rv">
+    <div class="tierhead"><h3>Act II — Wildcards</h3><span class="pill wild">Rotation Pool</span></div>
+    <p class="tiernote">The deep-cut lottery. They pulled "Bulletproof Heart" out for the first time since 2022 in New York this month, and have dropped unreleased material and covers on individual nights. Don't cram these — just recognise them.</p>
+    <div id="t4"></div>
+  </div>
+
+  <div class="notice rv">
+    <strong>The one nobody prepares for</strong>
+    The show opens with an opera singer performing <b>"Over Fields"</b> — the national anthem of Draag — and the audience is invited to participate. It's an original piece written for the tour, not an MCR song, and the band posted it to social media. Ninety seconds of your time and you'll be one of the few people in the stadium who can actually sing along to the opening number.
+  </div>
+</div>
+</section>
+
+<!-- ══════════ 02 DRAAG ══════════ -->
+<section id="draag">
+<div class="wrap">
+  <div class="shead rv"><span class="snum">02</span><h2>The Draag Storyline</h2></div>
+  <p class="lede rv">Act I isn't a concert with visuals bolted on — it's a piece of theatre with a plot that has been advancing show by show since July 2025, with a genuine mid-tour twist. Here's the whole thing in order.</p>
+
+  <div class="grid2 rv" style="margin-bottom:34px">
+    <div class="card red">
+      <h4>The Premise</h4>
+      <p><b>Draag</b> is a fictional authoritarian country ruled by the <b>Grand Immortal Dictator</b>. The band perform not as themselves but as <i>The Black Parade</i> — their 2007 marching-band alter ego — whose official title in-universe is <b>"His Grand Immortal Dictator's National Band."</b></p>
+      <p>They are not performing because they want to. They're performing because they've been ordered to, to celebrate the regime.</p>
+    </div>
+    <div class="card gold">
+      <h4>The World Detail</h4>
+      <ul>
+        <li>Government ministries appear throughout: <b>Menial Tasks</b>, <b>Complimentary Reconditioning</b>, <b>Operatic Relations</b></li>
+        <li>Draag has its own invented written language, <b>Keposhka</b> — 14 custom fonts, used down to the washing instructions on the merch</li>
+        <li>Its national anthem is <b>"Over Fields"</b></li>
+        <li>Mock "rules" appear on screen pre-show, and they change city to city</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tl">
+    <div class="beat rv">
+      <div class="when">2006 — Origin</div>
+      <h4>The Album</h4>
+      <p><i>The Black Parade</i> is released: a concept record about a dying man, "the Patient," who meets death in the form of his fondest memory — a marching band. That marching band becomes the band's alter ego.</p>
+    </div>
+    <div class="beat key rv">
+      <div class="when">07 Oct 2007 — Mexico City</div>
+      <h4>The Parade Dies</h4>
+      <p>At the Palacio de los Deportes, the band kill off the alter ego onstage. "The Black Parade is dead!" That performance was released as a live album. For seventeen years, that was the end of it.</p>
+    </div>
+    <div class="beat key rv">
+      <div class="when">Jan–Feb 2026 — Latin America <span style="color:var(--brass)">(chronologically first)</span></div>
+      <h4>Inside the M.O.A.T.</h4>
+      <p>This leg is set entirely inside <b>the M.O.A.T.</b> — a prison-hospital where the Black Parade have been held since 2007 for "reconditioning." The band appear as patients: nurses and orderlies hand them medication mid-song. Their uniforms are the <i>original 2007</i> ones, not the newer versions.</p>
+      <p>Key inversion: <b>The Clerk</b>, an antagonist in the 2025 shows, is here a fellow inmate who shakes hands with the band. And at the end, Gerard's character kills <i>him</i> — the reverse of what happens later.</p>
+    </div>
+    <div class="beat key rv">
+      <div class="when">14 Feb 2026 — Mexico City</div>
+      <h4>The Twist Lands</h4>
+      <p>On the final Latin American night, Gerard is handed the 2025 jacket onstage — confirming that everything in this leg was a <b>prequel</b> to the shows that had already happened. The audience had been watching the story out of order for a month without knowing.</p>
+      <p>The reveal was partly an accident of logistics: production designer <b>Rob Sinclair</b> proposed the prequel framing because the full-scale production physically couldn't travel to the region.</p>
+    </div>
+    <div class="beat rv">
+      <div class="when">Jul 2025 – Sep 2025 — North America</div>
+      <h4>Released to Perform</h4>
+      <p>Chronologically the <i>second</i> act. The Parade's "work privilege" is reinstated and they tour for the regime. The Clerk is now the villain, relaying the Dictator's orders. Gerard's character is punished for refusing to comply.</p>
+      <p>"Welcome to the Black Parade" is reframed as a <b>nationalist address</b> delivered from a podium over propaganda footage. Afterwards the crowd votes in a mock election — using yea/nay cards handed out at the gate — on whether to execute four people. It's rigged. The execution happens regardless. (In Tampa the "nay" option was simply removed from the cards.)</p>
+    </div>
+    <div class="beat rv">
+      <div class="when">Late Act I — Every Night</div>
+      <h4>Rebellion, Then Collapse</h4>
+      <p>During "Mama," Gerard steals a dagger from one of the Dictator's servants, calling it <i>a tool for our treasonous needs</i>. "Sleep" is staged over a simulated nuclear launch. "Teenagers" runs against fake Draag consumer adverts. "Famous Last Words" sets the stage on fire.</p>
+      <p>Then the reprise of "The End." — the Clerk returns dressed as a <b>Pierrot</b>, stabs Gerard in the throat, and the rest of the band are dragged off by soldiers. The Pierrot dances to "Blood," reveals a bomb vest, and detonates it. Blackout. End of Act I.</p>
+    </div>
+    <div class="beat now rv">
+      <div class="when">Aug–Oct 2026 — Current Leg</div>
+      <h4>Where The Story Sits Now</h4>
+      <p>The tour is mid-run through North America as you read this, wrapping with five nights at the Hollywood Bowl through Halloween. The M.O.A.T. institutional staging has carried forward, more pre-recorded propaganda speeches have been added, and the full B-stage is back in play.</p>
+    </div>
+    <div class="beat rv" style="padding-bottom:0">
+      <div class="when">19–20 Nov 2026 — You Are Here</div>
+      <h4>Kuala Lumpur</h4>
+      <p>Your nights are the <b>second-to-last stop of the entire tour</b> — only Jakarta follows, on the 22nd/23rd, closing out a run of roughly 47 shows across seven legs and two years. Whatever the story's ending is, KL is where it very nearly lands.</p>
+    </div>
+  </div>
+
+  <div class="notice rv">
+    <strong>What this means for you</strong>
+    Two nights, and the show is deliberately different night to night — different pre-show rules, different Act II, occasional plot movement. If you're going to both, <b>treat them as two chapters rather than a repeat.</b> If you're going to one, night two historically carries slightly more weight on multi-night stands, since that's where they tend to place the bigger swings.
+  </div>
+</div>
+</section>
+
+<!-- ══════════ 03 B-STAGE ══════════ -->
+<section id="bstage">
+<div class="wrap">
+  <div class="shead rv"><span class="snum">03</span><h2>How the B-Stage Works</h2></div>
+  <p class="lede rv">The single most misunderstood part of this show — and the thing that should decide where you stand.</p>
+
+  <div class="grid2 rv">
+    <div class="card red">
+      <h4>The Mechanic</h4>
+      <p>Act I ends with the Pierrot's bomb. Blackout. Then a cellist — <b>Clarice Jensen</b> — plays a solo interlude while the band physically <b>walk out into the middle of the crowd</b> to a second, smaller stage.</p>
+      <p>They come back out of costume, as <b>My Chemical Romance</b> rather than The Black Parade. No theatrics, no characters, no plot. Roughly 10–12 songs of a straight rock show.</p>
+    </div>
+    <div class="card gold">
+      <h4>Why It Matters</h4>
+      <p>Multiple critics who reviewed the 2025 run called the B-stage <b>the better half of the night</b> — the Act I spectacle is astonishing, but the B-stage is where the surprises, the deep cuts and the raw energy live.</p>
+      <p>It also completely reorganises the geography of the venue. Seats that were mediocre for Act I can become the best in the house, and vice versa.</p>
+    </div>
+    <div class="card blue">
+      <h4>Will KL Have One?</h4>
+      <p><b>Genuinely uncertain — plan for both.</b> The B-stage was dropped for the entire Latin American leg purely because the production couldn't be freighted at full scale. It returned for Europe and is running now in North America.</p>
+      <p>Bukit Jalil is a large open stadium, which is the right shape for it. But Southeast Asia is a fly-in leg with the same logistics problem Latin America had, and the arena shows in Bangkok and Singapore almost certainly can't host one.</p>
+      <p>If it's dropped, Act II simply happens on the main stage — you lose nothing musically.</p>
+    </div>
+  </div>
+
+  <div class="diagram rv">
+    <svg viewBox="0 0 660 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stadium layout diagram showing main stage, catwalk, B-stage and seating zones">
+      <defs>
+        <linearGradient id="gm" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#b01319"/><stop offset="100%" stop-color="#7a0d11"/>
+        </linearGradient>
+      </defs>
+      <!-- bowl -->
+      <ellipse cx="330" cy="200" rx="310" ry="180" fill="none" stroke="#6f6b60" stroke-width="1.5" opacity=".55"/>
+      <ellipse cx="330" cy="200" rx="255" ry="140" fill="none" stroke="#6f6b60" stroke-width="1" opacity=".35" stroke-dasharray="4 5"/>
+      <!-- pitch -->
+      <rect x="150" y="100" width="360" height="200" rx="6" fill="rgba(233,228,216,.035)" stroke="#6f6b60" stroke-width="1" opacity=".7"/>
+      <!-- main stage -->
+      <rect x="185" y="106" width="290" height="52" rx="3" fill="url(#gm)"/>
+      <text x="330" y="138" text-anchor="middle" fill="#e9e4d8" font-family="DM Mono, monospace" font-size="13" letter-spacing="3">MAIN STAGE</text>
+      <!-- video wings -->
+      <rect x="140" y="106" width="38" height="52" rx="2" fill="#1a1a1d" stroke="#6f6b60" stroke-width="1"/>
+      <rect x="482" y="106" width="38" height="52" rx="2" fill="#1a1a1d" stroke="#6f6b60" stroke-width="1"/>
+      <text x="159" y="137" text-anchor="middle" fill="#6f6b60" font-family="DM Mono, monospace" font-size="8">LED</text>
+      <text x="501" y="137" text-anchor="middle" fill="#6f6b60" font-family="DM Mono, monospace" font-size="8">LED</text>
+      <!-- catwalk -->
+      <rect x="318" y="158" width="24" height="72" fill="#c9a047" opacity=".38"/>
+      <!-- b-stage -->
+      <circle cx="330" cy="252" r="42" fill="#1a1a1d" stroke="#c9a047" stroke-width="2.5"/>
+      <text x="330" y="250" text-anchor="middle" fill="#c9a047" font-family="DM Mono, monospace" font-size="11" letter-spacing="2">B-STAGE</text>
+      <text x="330" y="265" text-anchor="middle" fill="#6f6b60" font-family="DM Mono, monospace" font-size="7.5" letter-spacing="1">IF PRESENT</text>
+      <!-- pit zones -->
+      <text x="235" y="186" text-anchor="middle" fill="#e9e4d8" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.5" opacity=".8">FRONT PIT</text>
+      <text x="425" y="186" text-anchor="middle" fill="#e9e4d8" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.5" opacity=".8">FRONT PIT</text>
+      <text x="225" y="256" text-anchor="middle" fill="#c9a047" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.5">SWEET SPOT</text>
+      <text x="435" y="256" text-anchor="middle" fill="#c9a047" font-family="DM Mono, monospace" font-size="9" letter-spacing="1.5">SWEET SPOT</text>
+      <!-- seated zones -->
+      <text x="330" y="70" text-anchor="middle" fill="#6f6b60" font-family="DM Mono, monospace" font-size="9" letter-spacing="2">BEHIND / RESTRICTED</text>
+      <text x="70" y="204" text-anchor="middle" fill="#6f6b60" font-family="DM Mono, monospace" font-size="9" letter-spacing="2">SIDE</text>
+      <text x="592" y="204" text-anchor="middle" fill="#6f6b60" font-family="DM Mono, monospace" font-size="9" letter-spacing="2">SIDE</text>
+      <text x="330" y="345" text-anchor="middle" fill="#e9e4d8" font-family="DM Mono, monospace" font-size="9" letter-spacing="2" opacity=".75">FAR END — FULL FRAME VIEW</text>
+      <!-- arrow -->
+      <path d="M330 168 L330 205" stroke="#c9a047" stroke-width="1.5" stroke-dasharray="3 3" opacity=".7"/>
+      <path d="M330 210 l-4 -7 l8 0 z" fill="#c9a047" opacity=".7"/>
+    </svg>
+    <div class="legend">
+      <div><i style="background:#b01319"></i> Act I — Theatre</div>
+      <div><i style="background:#c9a047"></i> Act II — B-Stage</div>
+      <div><i style="border:1px solid #6f6b60"></i> Seated Bowl</div>
+    </div>
+  </div>
+
+  <h3 class="disp rv" style="font-size:1.5rem;margin:44px 0 0;color:var(--bone)">Where to Stand — The Actual Trade-off</h3>
+  <p class="lede rv" style="margin-top:10px;margin-bottom:0">Your ticket tiers were named after songs. Here's what each one actually buys you, assessed for <b>both</b> scenarios.</p>
+  <div class="tblscroll rv">
+  <table class="tbl">
+    <thead>
+      <tr><th>Zone</th><th>Price</th><th>Act I — Theatre</th><th>Act II — If B-Stage Exists</th><th>Verdict</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="zone">"I Don't Love You"<br><span style="font-family:'DM Mono';font-size:.62rem;color:var(--concrete);letter-spacing:.1em">EARLY ENTRY · STANDING</span></td>
+        <td class="price">RM799</td>
+        <td>Best in the building. Close enough to read the actors' faces and catch the character beats that get lost on the screens.</td>
+        <td>You're stuck at the barrier with your back to the B-stage, or you surrender your rail spot to move.</td>
+        <td><span class="verdict v-mixed">Front-loaded</span></td>
+      </tr>
+      <tr>
+        <td class="zone">"I'm Not Okay"<br><span style="font-family:'DM Mono';font-size:.62rem;color:var(--concrete);letter-spacing:.1em">GENERAL STANDING</span></td>
+        <td class="price">RM599</td>
+        <td>Good. Enter without early access and settle <b>mid-floor</b> rather than pushing forward.</td>
+        <td>Optimal. Mid-floor puts you between both stages — you barely move all night and see everything.</td>
+        <td><span class="verdict v-best">Best overall</span></td>
+      </tr>
+      <tr>
+        <td class="zone">Zone A / B<br><span style="font-family:'DM Mono';font-size:.62rem;color:var(--concrete);letter-spacing:.1em">SEATED · SIDE</span></td>
+        <td class="price">RM599–699</td>
+        <td>Side-on. You see the stage depth and the pyro well, but staging angles work against you.</td>
+        <td>Can be excellent — a B-stage often sits closer to side seating than the main stage does.</td>
+        <td><span class="verdict v-good">Solid</span></td>
+      </tr>
+      <tr>
+        <td class="zone">"Helena"<br><span style="font-family:'DM Mono';font-size:.62rem;color:var(--concrete);letter-spacing:.1em">PREMIUM SEATED</span></td>
+        <td class="price">RM1099</td>
+        <td>Comfort and sightline both. If the theatre is what you're here for, this is the clean choice.</td>
+        <td>Fixed seat. Whatever angle you get on the B-stage is the angle you keep.</td>
+        <td><span class="verdict v-good">Comfort pick</span></td>
+      </tr>
+      <tr>
+        <td class="zone">Zone C / D / E<br><span style="font-family:'DM Mono';font-size:.62rem;color:var(--concrete);letter-spacing:.1em">SEATED · FAR / UPPER</span></td>
+        <td class="price">RM299–499</td>
+        <td>Underrated. This is a production designed to be read as a <b>whole frame</b> — the propaganda screens, the lighting, the crowd itself. Distance is a feature here.</td>
+        <td>Distant, but a centre B-stage is closer to you than the main stage was.</td>
+        <td><span class="verdict v-good">Value pick</span></td>
+      </tr>
+      <tr>
+        <td class="zone">Behind Stage</td>
+        <td class="price">—</td>
+        <td>Avoid if avoidable. Act I is heavily front-facing and screen-dependent.</td>
+        <td>Improves sharply if a B-stage exists.</td>
+        <td><span class="verdict v-risk">Last resort</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="notice rv">
+    <strong>The short version</strong>
+    If you already hold a ticket, none of this needs acting on — every zone works. If you're still choosing, or deciding where to plant yourself on the floor: <b>general standing, mid-floor, roughly level with the sound desk.</b> It's the only position that's good in both scenarios, and it doesn't require you to gamble on whether the B-stage made it onto the plane.
+  </div>
+</div>
+</section>
+
+<!-- ══════════ 04 STAGE ══════════ -->
+<section id="stage">
+<div class="wrap">
+  <div class="shead rv"><span class="snum">04</span><h2>What You'll Be Looking At</h2></div>
+  <p class="lede rv">The production is designed by <b>Rob Sinclair</b>. Based on how the tour has run through 2026, here's what to expect at Bukit Jalil — with the caveat that this is a projection from the current leg, not a confirmed KL plot.</p>
+
+  <div class="grid2 rv">
+    <div class="card red">
+      <h4>The Institution</h4>
+      <p>The 2026 staging is set inside <b>the M.O.A.T.</b> — read it as a state psychiatric facility rather than a concert stage. Clinical, institutional, deliberately drained of colour.</p>
+      <p>Background performers dressed as <b>nurses and orderlies</b> move through the set and hand the band medication mid-performance. It's unsettling on purpose.</p>
+    </div>
+    <div class="card gold">
+      <h4>The Uniforms</h4>
+      <p>For 2026 the band reverted to costumes closely resembling the <b>original 2007 Black Parade uniforms</b> — a deliberate signal that this is chronologically earlier in the story than the 2025 shows.</p>
+      <p>Watch for Gerard removing the jacket. It's a plot beat, not a temperature decision.</p>
+    </div>
+    <div class="card blue">
+      <h4>The Screens</h4>
+      <p>The video content isn't a live feed with graphics — it's a running stream of <b>in-universe Draag propaganda</b>: state broadcasts, wanted posters, fake consumer adverts during "Teenagers," and pre-show "rules" that change city to city.</p>
+      <p>The 2026 leg added <b>more pre-recorded speeches</b> than 2025. Expect a lot of the Dictator's face.</p>
+    </div>
+    <div class="card">
+      <h4>Pyro &amp; Effects</h4>
+      <p>Heavy. "Famous Last Words" is staged with the set apparently going up in flames. "Sleep" runs over a simulated nuclear launch sequence. Expect real heat if you're near the front.</p>
+      <p>Confetti at the climax. Bring nothing you'd mind getting covered.</p>
+    </div>
+    <div class="card">
+      <h4>The Extra Musicians</h4>
+      <p>This is a much bigger ensemble than four people. Alongside the band: <b>Jarrod Alexander</b> (drums), <b>Jamie Muhoberac</b> (keys), <b>Tucker Rule</b> (percussion), <b>Kayleigh Goldsworthy</b> (violin, on "Cancer" and "Mama") and <b>Clarice Jensen</b> (cello, interlude).</p>
+    </div>
+    <div class="card">
+      <h4>The Cast</h4>
+      <ul>
+        <li><b>The Grand Immortal Dictator</b> — Wayne Jay. Watches from a distance, mostly on screen.</li>
+        <li><b>The Clerk</b> — Charlie Saxton. Also becomes the Pierrot.</li>
+        <li><b>Marianne</b> — Lucy Joy Altus, opera singer.</li>
+        <li><b>Sylvia</b> — Charlotte Kelso, alternates in as "head nurse."</li>
+        <li><b>The Gentleman</b> — a ventriloquist dummy the band met in prison.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══════════ 05 NIGHT-OF ══════════ -->
+<section id="nightof">
+<div class="wrap">
+  <div class="shead rv"><span class="snum">05</span><h2>Running Order &amp; Night-Of Notes</h2></div>
+  <p class="lede rv">Approximate shape of the evening, based on how the tour has run. Doors and set times for KL will be confirmed by Hello Universe closer to the date — check before you travel.</p>
+
+  <div class="ro">
+    <div class="step rv"><div class="t">Pre-Show</div><h4>Rules &amp; Voting Cards</h4><p>Mock Draag "rules" go up on the screens. At some shows attendees have been handed <b>voting cards</b> on entry — take one, you'll need it. The PA plays a 1956 recording of "Tonight You Belong to Me" by Patience and Prudence before things start.</p></div>
+    <div class="step rv"><div class="t">Support</div><h4>Opening Act</h4><p>The tour has used a different opener in nearly every city. KL's has not been widely confirmed — check the promoter's channels.</p></div>
+    <div class="step rv"><div class="t">Act I Opens</div><h4>"Over Fields"</h4><p>An opera singer performs the Draag national anthem and asks the crowd to join in. Then the band walk out in uniform and go straight into "The End."</p></div>
+    <div class="step rv"><div class="t">Act I Midpoint</div><h4>The Election</h4><p>"Welcome to the Black Parade" is delivered as a political speech from a podium. Immediately after, the mock vote on four executions. <b>Hold your card up.</b> The result is predetermined.</p></div>
+    <div class="step rv"><div class="t">Act I Close</div><h4>The Pierrot</h4><p>Gerard is stabbed during the reprise of "The End." The band are removed by soldiers. The Pierrot detonates a bomb vest to "Blood." Then darkness — don't leave, this is the interval.</p></div>
+    <div class="step rv"><div class="t">Interlude</div><h4>Cello Solo</h4><p>Clarice Jensen plays while the band cross to the B-stage. This is your window for water or the toilets if you need it — but you'll miss the walk-out.</p></div>
+    <div class="step rv" style="padding-bottom:0"><div class="t">Act II</div><h4>The Rock Show</h4><p>Costumes off. Roughly 10–12 songs, no narrative, ending on "Helena" or close to it. This is the loudest the stadium will get all night.</p></div>
+  </div>
+
+  <div class="grid2 rv" style="margin-top:38px">
+    <div class="card gold">
+      <h4>Practical, Bukit Jalil-Specific</h4>
+      <ul>
+        <li>Open-air stadium in November — <b>Klang Valley evening thunderstorms are routine.</b> Ticketing has been rain-or-shine elsewhere on this tour. Bring a thin poncho, not an umbrella.</li>
+        <li>LRT Sri Petaling line to Bukit Jalil is the sane route in; the crush getting out afterwards is significant. Budget an hour.</li>
+        <li>60,000+ per night. Agree a meeting point with anyone you're going with <b>before</b> you go in.</li>
+        <li>Heavy pyro plus tropical humidity — hydrate through the day, not just at the venue.</li>
+      </ul>
+    </div>
+    <div class="card blue">
+      <h4>Worth Doing Beforehand</h4>
+      <ul>
+        <li>Listen to <i>The Black Parade</i> straight through, in order, at least twice. Act I is exactly this, and sequence familiarity matters more than lyric perfection.</li>
+        <li>Learn "Over Fields."</li>
+        <li>Watch the original tour announcement trailer for the Draag world setup.</li>
+        <li>Check setlist.fm the morning after Bangkok (17 Nov) and Manila (14 Nov) — those will tell you exactly what this leg's Act II looks like, two days before your show.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+  <h4>Sources &amp; Caveats</h4>
+  <p style="max-width:660px">Compiled from tour reporting through August 2026. Setlist probabilities are inferred from observed shows across the 2025 and 2026 legs — <b>the band deliberately vary the show night to night</b>, so treat Act II as a forecast rather than a schedule. KL-specific staging is a projection from the current North American leg, not confirmed detail.</p>
+  <div class="srcs">
+    <span>Wikipedia — <i>Long Live The Black Parade</i> / <i>The Black Parade 2026</i></span>
+    <span>Consequence — Citi Field tour kickoff, Aug 2026</span>
+    <span>Loudwire — Draag explained; 2026 changes; prequel reveal</span>
+    <span>Paste, Exclaim!, LA Times, Michigan Daily — tour reviews</span>
+    <span>NME, Kerrang!, Variety — announcements &amp; rescheduling</span>
+    <span>Malay Mail / More Than Good Hooks — KL dates &amp; tiers</span>
+  </div>
+  <p style="margin-top:30px;font-size:.78rem;opacity:.6">Lyrics are not reproduced here. Song links resolve to Genius. Built for the 19–20 November 2026 shows at National Stadium Bukit Jalil.</p>
+</div>
+</footer>
+
+<script>
+/* ── COUNTDOWN ── */
+var TARGET = new Date('2026-11-19T19:00:00+08:00').getTime();
+function tick(){
+  var diff = TARGET - Date.now();
+  if(diff < 0){ document.getElementById('clock').innerHTML =
+    '<div class="unit" style="min-width:auto;padding:14px 26px"><span class="n" style="color:var(--blood)">LONG LIVE</span><span class="l">The Parade Has Passed</span></div>'; return; }
+  var d = Math.floor(diff/864e5), h = Math.floor(diff%864e5/36e5),
+      m = Math.floor(diff%36e5/6e4), s = Math.floor(diff%6e4/1e3);
+  var p = function(n){ return String(n).padStart(2,'0'); };
+  document.getElementById('d').textContent = d;
+  document.getElementById('h').textContent = p(h);
+  document.getElementById('m').textContent = p(m);
+  document.getElementById('s').textContent = p(s);
+}
+tick(); setInterval(tick,1000);
+
+/* ── SETLIST DATA ── */
+var T1 = [
+  ['The End.','Opens the show. Reprised at the end of Act I with piano and violin.'],
+  ['Dead!',''],
+  ['This Is How I Disappear',''],
+  ['The Sharpest Lives','2026 legs added a new intro titled "The Eye".'],
+  ['Welcome to the Black Parade','Staged as a nationalist speech from a podium. The big one — know every word.'],
+  ["I Don't Love You",''],
+  ['House of Wolves',''],
+  ['Cancer','Violin arrangement.'],
+  ['Mama','Updated lyrics plus an extended "Dagger" section. Guest opera singer.'],
+  ['Sleep','Extended intro titled "The Big Sky", over a simulated nuclear launch.'],
+  ['Teenagers','Runs against fake Draag adverts.'],
+  ['Disenchanted','Extended intro titled "The Button Pressed".'],
+  ['Famous Last Words','Closes with a "Welcome to the Black Parade" reprise outro. Pyro.'],
+  ['Blood','Hidden track, played from tape while the Pierrot dances. You do not need to sing this one.']
+];
+var T2 = [
+  ['Helena','The closer, or near it. Whole-stadium singalong. Non-negotiable.'],
+  ["I'm Not Okay (I Promise)",'Has opened Act II repeatedly.'],
+  ['Na Na Na (Na Na Na Na Na Na Na Na Na)',''],
+  ["Give 'Em Hell, Kid",'']
+];
+var T3 = [
+  ['Planetary (GO!)',''],
+  ['The Ghost of You',''],
+  ['Thank You for the Venom',''],
+  ['Our Lady of Sorrows',''],
+  ['Headfirst for Halos',''],
+  ['Demolition Lovers','Played at Citi Field with strings and piano.'],
+  ['Vampires Will Never Hurt You','']
+];
+var T4 = [
+  ['Summertime',''],['Heaven Help Us','Rare — third outing in four years.'],
+  ['Bulletproof Heart','First time since 2022, played this August.'],
+  ['DESTROYA',''],['Boy Division',''],['Bury Me in Black',''],
+  ["Honey, This Mirror Isn't Big Enough for the Two of Us",''],
+  ['Kill All Your Friends',''],['The World Is Ugly',''],['Vampire Money',''],
+  ['To the End','First play in 20 years happened on this tour.'],
+  ['My Way Home Is Through You',''],
+  ['War Beneath the Rain','Unreleased, from the scrapped Paper Kingdom sessions.'],
+  ['Bullet with Butterfly Wings','Smashing Pumpkins cover — occasional.'],
+  ["Livin' on a Prayer",'Bon Jovi cover — occasional.']
+];
+
+/* ── RENDER ── */
+var idx = 0, total = 0;
+function render(list, id){
+  var html = '';
+  list.forEach(function(row){
+    var name = row[0], note = row[1], key = 'mcr_' + (idx++);
+    var q = encodeURIComponent('My Chemical Romance ' + name);
+    total++;
+    html += '<label class="song">'
+         +  '<input type="checkbox" data-key="'+key+'">'
+         +  '<span class="sname">'+name+(note?'<span>'+note+'</span>':'')+'</span>'
+         +  '<a class="slink" href="https://genius.com/search?q='+q+'" target="_blank" rel="noopener">Lyrics ↗</a>'
+         +  '</label>';
+  });
+  document.getElementById(id).innerHTML = html;
+}
+render(T1,'t1'); render(T2,'t2'); render(T3,'t3'); render(T4,'t4');
+document.getElementById('total').textContent = total;
+
+/* ── PROGRESS + STORAGE (degrades gracefully if storage is blocked) ── */
+var mem = {};
+function load(k){ try { return localStorage.getItem(k) === '1'; } catch(e){ return !!mem[k]; } }
+function save(k,v){ try { localStorage.setItem(k, v?'1':'0'); } catch(e){ mem[k] = v; } }
+
+function refresh(){
+  var boxes = document.querySelectorAll('.song input');
+  var n = 0;
+  boxes.forEach(function(b){ if(b.checked) n++; });
+  document.getElementById('done').textContent = n;
+  document.getElementById('fill').style.width = (n/boxes.length*100) + '%';
+}
+document.querySelectorAll('.song input').forEach(function(b){
+  if(load(b.dataset.key)) b.checked = true;
+  b.addEventListener('change', function(){ save(b.dataset.key, b.checked); refresh(); });
+});
+refresh();
+
+/* ── SCROLL REVEAL ── */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold:.12, rootMargin:'0px 0px -40px 0px' });
+document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>
