@@ -807,8 +807,8 @@ header .clock{animation-delay:.28s}header .stamp{animation-delay:.42s}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 /* ── SYNC CONFIG ── paste your Supabase Project URL and Publishable key here ── */
-var SB_URL = '';
-var SB_KEY = '';
+var SB_URL = 'https://kgtrxywexwlwapgiiidj.supabase.co';
+var SB_KEY = 'sb_publishable_-BxqsgAnX3Nd_EmwKMTFdw_GQKpCC0G';
 
 var TARGET = new Date('2026-11-19T19:00:00+08:00').getTime();
 function tick(){
@@ -915,7 +915,7 @@ if(SB_URL && SB_KEY && window.supabase){
 function pull(){
   if(!sb) return;
   status('busy','Syncing…');
-  sb.from('ticks').select('song_key,checked').then(function(res){
+  sb.from('mcr_ticks').select('song_key,checked').then(function(res){
     if(res.error){ status('err','Sync failed — saved on this device'); return; }
     var remote={};
     res.data.forEach(function(r){ remote[r.song_key]=r.checked; });
@@ -929,7 +929,7 @@ function pull(){
 function push(k,v){
   if(!sb) return;
   status('busy','Saving…');
-  sb.from('ticks').upsert({song_key:k,checked:v,updated_at:new Date().toISOString()}).then(function(res){
+  sb.from('mcr_ticks').upsert({song_key:k,checked:v,updated_at:new Date().toISOString()}).then(function(res){
     if(res.error) status('err','Not synced — saved on this device');
     else status('ok','Synced across devices');
   });
