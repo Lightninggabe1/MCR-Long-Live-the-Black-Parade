@@ -179,6 +179,9 @@ h3.sub{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:
 .progbar .lbl{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.16em;color:var(--concrete);text-transform:uppercase}
 .progbar .cnt{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:1.55rem;color:var(--brass)}
 .track{height:5px;background:rgba(233,228,216,.1);overflow:hidden}
+.syncline{display:flex;align-items:center;gap:8px;margin-top:11px;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:var(--concrete)}
+.sdot{width:7px;height:7px;border-radius:50%;background:var(--concrete);flex-shrink:0;transition:background .3s}
+.sdot.ok{background:#5fa35f}.sdot.busy{background:var(--brass);animation:pulse 1.2s infinite}.sdot.err{background:var(--blood)}
 .fill{height:100%;background:linear-gradient(90deg,var(--blood),var(--brass));width:0;transition:width .45s cubic-bezier(.4,0,.2,1)}
 
 /* DIAGRAM */
@@ -613,6 +616,7 @@ header .clock{animation-delay:.28s}header .stamp{animation-delay:.42s}
   <div class="progbar rv">
     <div class="row"><span class="lbl">Memorisation Progress</span><span class="cnt"><span id="done">0</span> / <span id="total">0</span></span></div>
     <div class="track"><div class="fill" id="fill"></div></div>
+    <div class="syncline"><span class="sdot" id="sdot"></span><span id="stext">Saved on this device only</span></div>
   </div>
 
   <div class="tier rv">
@@ -800,7 +804,12 @@ header .clock{animation-delay:.28s}header .stamp{animation-delay:.42s}
 </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+/* ── SYNC CONFIG ── paste your Supabase Project URL and Publishable key here ── */
+var SB_URL = '';
+var SB_KEY = '';
+
 var TARGET = new Date('2026-11-19T19:00:00+08:00').getTime();
 function tick(){
   var diff = TARGET - Date.now();
@@ -870,7 +879,8 @@ var idx=0,total=0;
 function render(list,id){
   var html='';
   list.forEach(function(row){
-    var name=row[0],note=row[1],key='mcr2_'+(idx++);
+    var name=row[0],note=row[1];idx++;
+    var key=name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
     var q=encodeURIComponent('My Chemical Romance '+name);
     total++;
     html+='<label class="song"><input type="checkbox" data-key="'+key+'">'
@@ -882,20 +892,55 @@ function render(list,id){
 render(T1,'t1'); render(T2,'t2'); render(T3,'t3'); render(T4,'t4');
 document.getElementById('total').textContent=total;
 
+/* ── TICKS: local cache always, Supabase sync when configured ── */
 var mem={};
-function load(k){ try{ return localStorage.getItem(k)==='1'; }catch(e){ return !!mem[k]; } }
-function save(k,v){ try{ localStorage.setItem(k,v?'1':'0'); }catch(e){ mem[k]=v; } }
+function load(k){ try{ return localStorage.getItem('tick_'+k)==='1'; }catch(e){ return !!mem[k]; } }
+function save(k,v){ try{ localStorage.setItem('tick_'+k,v?'1':'0'); }catch(e){ mem[k]=v; } }
 function refresh(){
   var boxes=document.querySelectorAll('.song input'),n=0;
   boxes.forEach(function(b){ if(b.checked) n++; });
   document.getElementById('done').textContent=n;
   document.getElementById('fill').style.width=(n/boxes.length*100)+'%';
 }
+function status(cls,txt){
+  document.getElementById('sdot').className='sdot'+(cls?' '+cls:'');
+  document.getElementById('stext').textContent=txt;
+}
+
+var sb=null;
+if(SB_URL && SB_KEY && window.supabase){
+  try{ sb=window.supabase.createClient(SB_URL,SB_KEY); }catch(e){ sb=null; }
+}
+
+function pull(){
+  if(!sb) return;
+  status('busy','Syncing…');
+  sb.from('ticks').select('song_key,checked').then(function(res){
+    if(res.error){ status('err','Sync failed — saved on this device'); return; }
+    var remote={};
+    res.data.forEach(function(r){ remote[r.song_key]=r.checked; });
+    document.querySelectorAll('.song input').forEach(function(b){
+      if(b.dataset.key in remote){ b.checked=remote[b.dataset.key]; save(b.dataset.key,b.checked); }
+    });
+    refresh();
+    status('ok','Synced across devices');
+  });
+}
+function push(k,v){
+  if(!sb) return;
+  status('busy','Saving…');
+  sb.from('ticks').upsert({song_key:k,checked:v,updated_at:new Date().toISOString()}).then(function(res){
+    if(res.error) status('err','Not synced — saved on this device');
+    else status('ok','Synced across devices');
+  });
+}
+
 document.querySelectorAll('.song input').forEach(function(b){
   if(load(b.dataset.key)) b.checked=true;
-  b.addEventListener('change',function(){ save(b.dataset.key,b.checked); refresh(); });
+  b.addEventListener('change',function(){ save(b.dataset.key,b.checked); refresh(); push(b.dataset.key,b.checked); });
 });
 refresh();
+if(sb){ pull(); document.addEventListener('visibilitychange',function(){ if(!document.hidden) pull(); }); }
 
 var io=new IntersectionObserver(function(es){
   es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
