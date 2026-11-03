@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx=".5" cy=".45" r=".75"><stop offset="0" stop-color="#2a1416"/><stop offset="1" stop-color="#0c0b0d"/></radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ecd28a"/><stop offset="1" stop-color="#a9812f"/></linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <g stroke="#b01319" stroke-opacity=".35" stroke-width="4">
+    <path d="M256 256 256 30M256 256 416 96M256 256 482 256M256 256 416 416M256 256 256 482M256 256 96 416M256 256 30 256M256 256 96 96"/>
+  </g>
+  <circle cx="256" cy="256" r="160" fill="#7a0d11"/>
+  <circle cx="256" cy="256" r="160" fill="none" stroke="url(#gold)" stroke-width="10"/>
+  <circle cx="256" cy="256" r="138" fill="none" stroke="#c9a047" stroke-opacity=".6" stroke-width="3" stroke-dasharray="4 10"/>
+  <text x="256" y="300" text-anchor="middle" font-family="Didot, Georgia, serif" font-weight="700" font-size="150" fill="url(#gold)" letter-spacing="-6">LL</text>
+  <path d="M196 336h120" stroke="#c9a047" stroke-width="5"/>
+  <path d="M256 146l9 18 20 3-14 14 3 20-18-9-18 9 3-20-14-14 20-3z" fill="#e9e4d8"/>
+</svg>
